@@ -66,4 +66,18 @@ public class Solution78 {
 
     }
 
+    public List<List<Integer>> subSets3(int[] nums) {
+        List<List<Integer>> lists = new ArrayList<>();
+        lists.add(new ArrayList<>());
+        for (int i = 0; i < nums.length; i++) {
+            int loopSize = lists.size();
+            for (int j = 0; j < loopSize; j++) {
+                List<Integer> list = new ArrayList<>(lists.get(j));
+                list.add(nums[i]);
+                lists.add(list);
+            }
+        }
+        return lists;
+    }
+
 }
